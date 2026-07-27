@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Prediction History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>📜 Prediction History</h1>
+
+        <p>Previous AI Predictions</p>
+
+    </div>
+
+    <div class="button-group">
+
+        <a href="{{ url_for('home') }}">
+
+            <button>
+
+                🏠 Home
+
+            </button>
+
+        </a>
+
+        <a href="{{ url_for('clear') }}"
+           onclick="return confirm('Clear all prediction history?');">
+
+            <button class="danger">
+
+                🗑 Clear History
+
+            </button>
+
+        </a>
+
+    </div>
+
+    <br>
+
+    {% if records %}
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Image</th>
+
+            <th>Disease</th>
+
+            <th>Confidence</th>
+
+            <th>Date</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for row in records %}
+
+        <tr>
+
+            <td>{{ row.id }}</td>
+
+            <td>
+
+                <img
+                src="{{ url_for('static',
+                filename='uploads/' + row.image) }}"
+                class="history-image">
+
+            </td>
+
+            <td>
+
+                {{ row.disease }}
+
+            </td>
+
+            <td>
+
+                {{ "%.2f"|format(row.confidence) }} %
+
+            </td>
+
+            <td>
+
+                {{ row.prediction_date }}
+
+            </td>
+
+            <td>
+
+                <a href="{{ url_for('delete',
+                prediction_id=row.id) }}"
+                onclick="return confirm('Delete this prediction?');">
+
+                    <button class="danger">
+
+                        Delete
+
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="empty">
+
+        <h2>
+
+            No Prediction History
+
+        </h2>
+
+        <br>
+
+        <p>
+
+            Upload a soybean leaf image to create your first prediction.
+
+        </p>
+
+        <br>
+
+        <a href="{{ url_for('home') }}">
+
+            <button>
+
+                Predict Now
+
+            </button>
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+
+</html>

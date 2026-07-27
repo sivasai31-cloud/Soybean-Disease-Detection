@@ -1,0 +1,496 @@
+/* =========================
+   Google Font
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* =========================
+   Reset
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* =========================
+   Body
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(
+        135deg,
+        #0f2027,
+        #203a43,
+        #2c7744
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 12s ease infinite;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px;
+
+}
+
+/* =========================
+   Background Animation
+========================= */
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* =========================
+   Container
+========================= */
+
+.container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:
+
+    0 10px 40px rgba(0,0,0,.35);
+
+}
+
+/* =========================
+   Header
+========================= */
+
+.header{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.logo{
+
+    width:120px;
+
+    margin-bottom:15px;
+
+    transition:.4s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.08);
+
+}
+
+.header h1{
+
+    color:white;
+
+    font-size:38px;
+
+}
+
+.header p{
+
+    color:#d4ffd4;
+
+    margin-top:8px;
+
+}
+
+/* =========================
+   Upload Area
+========================= */
+
+.drop-area{
+
+    display:block;
+
+    padding:40px;
+
+    border:3px dashed #4CAF50;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    transition:.3s;
+
+    color:white;
+
+}
+
+.drop-area:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.drop-area input{
+
+    display:none;
+
+}
+
+.drop-area h2{
+
+    margin-bottom:10px;
+
+}
+
+.drop-area p{
+
+    color:#ddd;
+
+}
+
+#preview{
+
+    display:none;
+
+    width:250px;
+
+    margin-top:20px;
+
+    border-radius:15px;
+
+    border:4px solid white;
+
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button{
+
+    background:linear-gradient(
+        135deg,
+        #43a047,
+        #2e7d32
+    );
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.button-group{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.danger{
+
+    background:#e53935;
+
+}
+
+/* =========================
+   Result Card
+========================= */
+
+.result-card{
+
+    margin-top:30px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.result-card h2{
+
+    color:#2E7D32;
+
+}
+
+.result-image{
+
+    width:280px;
+
+    margin:20px auto;
+
+    display:block;
+
+    border-radius:15px;
+
+    border:4px solid #4CAF50;
+
+}
+
+/* =========================
+   Progress Bar
+========================= */
+
+.progress{
+
+    width:100%;
+
+    height:30px;
+
+    background:#ddd;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-top:10px;
+
+}
+
+.progress-bar{
+
+    background:linear-gradient(
+        90deg,
+        #4CAF50,
+        #66BB6A
+    );
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-weight:bold;
+
+}
+
+/* =========================
+   Disease Card
+========================= */
+
+.info-card{
+
+    margin-top:30px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+}
+
+.info-card h2{
+
+    color:#2E7D32;
+
+    margin-top:20px;
+
+}
+
+.info-card p{
+
+    line-height:1.8;
+
+}
+
+.info-card pre{
+
+    white-space:pre-wrap;
+
+    line-height:1.8;
+
+}
+
+/* =========================
+   History Table
+========================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+table th{
+
+    background:#2E7D32;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+table td{
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+table tr:nth-child(even){
+
+    background:#f5f5f5;
+
+}
+
+.history-image{
+
+    width:90px;
+
+    border-radius:10px;
+
+}
+
+/* =========================
+   Error
+========================= */
+
+.error{
+
+    background:#ffebee;
+
+    color:#b71c1c;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:20px;
+
+}
+
+/* =========================
+   Empty
+========================= */
+
+.empty{
+
+    text-align:center;
+
+    color:white;
+
+    padding:60px;
+
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:768px){
+
+.container{
+
+padding:20px;
+
+}
+
+.header h1{
+
+font-size:28px;
+
+}
+
+.result-image{
+
+width:100%;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+button{
+
+width:100%;
+
+margin-top:10px;
+
+}
+
+.button-group{
+
+flex-direction:column;
+
+}
+
+}

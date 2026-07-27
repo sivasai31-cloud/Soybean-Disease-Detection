@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soybean Disease Detection AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             class="logo"
+             alt="Logo">
+
+        <h1>🌿 Soybean Disease Detection AI</h1>
+
+        <p>AI Powered by TensorFlow & Flask</p>
+
+    </div>
+
+    <!-- Upload Form -->
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <label class="drop-area" id="drop-area">
+
+            <input
+                type="file"
+                id="image"
+                name="image"
+                accept=".jpg,.jpeg,.png,image/*"
+                onchange="previewImage(event)"
+                required>
+
+            <div>
+
+                <h2>📷 Drag & Drop Leaf Image</h2>
+
+                <p>or Click Here to Browse</p>
+
+                <img
+                    id="preview"
+                    alt="Preview">
+
+            </div>
+
+        </label>
+
+        <br>
+
+        <button type="submit">
+
+            🔍 Predict Disease
+
+        </button>
+
+    </form>
+
+    <!-- Error -->
+
+    {% if error %}
+
+    <div class="error">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    <!-- Prediction Result -->
+
+    {% if prediction %}
+
+    <div class="result-card">
+
+        <h2>
+
+            Prediction Result
+
+        </h2>
+
+        <img
+            src="{{ url_for('static',
+            filename='uploads/' + image) }}"
+            class="result-image"
+            alt="Uploaded Image">
+
+        <br>
+
+        <h3>
+
+            🦠 Disease
+
+        </h3>
+
+        <h2 style="color:#2E7D32;">
+
+            {{ prediction }}
+
+        </h2>
+
+        <br>
+
+        <h3>
+
+            📊 Confidence
+
+        </h3>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                style="width: {{ confidence }}%;">
+
+                {{ confidence }}%
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <h2>
+
+            📖 Description
+
+        </h2>
+
+        <p>
+
+            {{ details.description }}
+
+        </p>
+
+        <h2>
+
+            ⚠ Symptoms
+
+        </h2>
+
+        <pre>
+
+{{ details.symptoms }}
+
+        </pre>
+
+        <h2>
+
+            💊 Treatment
+
+        </h2>
+
+        <pre>
+
+{{ details.treatment }}
+
+        </pre>
+
+        <h2>
+
+            🛡 Prevention
+
+        </h2>
+
+        <pre>
+
+{{ details.prevention }}
+
+        </pre>
+
+    </div>
+
+    {% endif %}
+
+    <br>
+
+    <div class="button-group">
+
+        <a href="{{ url_for('history') }}">
+
+            <button type="button">
+
+                📜 Prediction History
+
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

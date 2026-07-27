@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+
+dataset/
+
+predictions.db
+
+uploads/
+test.jpg
+
+*.log
+
+.DS_Store
